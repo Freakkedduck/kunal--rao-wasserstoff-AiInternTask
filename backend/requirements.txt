@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+streamlit
+pydantic
+tqdm
+python-multipart
+paddleocr
+pdfplumber
+PyMuPDF
+chromadb
+openai
+sentence-transformers
+python-dotenv
+requests 
