@@ -1,8 +1,6 @@
-from fastapi import FastAPI #type: ignore 
+from fastapi import FastAPI
+from app.api import upload
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Backend is running successfully!"}
-
+app.include_router(upload.router, prefix="/api")
