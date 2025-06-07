@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, UploadFile
+from fastapi import APIRouter, File, UploadFile #type: ignore
 from app.services.ocr import process_document
 from app.core.storage import save_extracted_text
 import uuid
