@@ -5,8 +5,7 @@ import uuid
 import os
 
 router = APIRouter()
-
-UPLOAD_DIR = "data/"
+UPLOAD_DIR = "backend/data"
 
 @router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
@@ -19,4 +18,9 @@ async def upload_file(file: UploadFile = File(...)):
     extracted = process_document(file_path, file.filename)
     save_extracted_text(doc_id, file.filename, extracted)
     
-    return {"doc_id": doc_id, "message": "File uploaded and processed"}
+    return {
+        "doc_id": doc_id,
+        "message": "File uploaded and processed",
+        "pages": len(extracted),
+        "characters": sum(len(p["text"]) for p in extracted)
+    }
